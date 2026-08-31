@@ -1,0 +1,356 @@
+<!doctype html>
+<!--
+  Practiworks holding page. Created 31.08.2026.
+
+  Temporary placeholder for the site root while the first version of the site
+  and the first track are finished. Deliberately self-contained: inline CSS,
+  no build step, no dependencies, no JavaScript beyond a one-line footer year.
+  Drop this file anywhere as index.html and it works, which means it keeps
+  working while the real Vite site is mid-refactor.
+
+  There is deliberately no entrance animation. A fade-in leaves the page briefly
+  unreadable, and preview crawlers and screenshot tools capture it mid-fade, so
+  the one job this page has would be the first thing to break.
+
+  It shares no code with src/, so the palette and type below are a COPY of the
+  tokens in src/main.css. If you change those, mirror the values here, or just
+  delete this page once the real site ships.
+
+  Nothing on this page is clickable, on purpose. Three things are commented out
+  below and each is a one-block edit to switch on:
+    1. search engine exclusion  (see the robots meta)
+    2. a contact address        (see the CONTACT block in the body)
+    3. a link to a playable track (see the CALL TO ACTION block in the body)
+-->
+<html lang="en" style="background: #faf8f4">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Practiworks - Certification preparation that works like the job</title>
+    <meta
+      name="description"
+      content="Practiworks turns certification study into a shift on the job. You take the role, incidents arrive, and every decision costs something. Build judgment, not recall. Launching soon."
+    />
+
+    <!--
+      Uncomment to keep this placeholder out of search results. Worth doing if
+      you would rather the first indexed impression of Practiworks be the real
+      site rather than a holding page. Remember to remove it at launch.
+    -->
+    <!-- <meta name="robots" content="noindex, follow" /> -->
+
+    <meta property="og:title" content="Practiworks - Knowledge goes in. Judgment comes out." />
+    <meta
+      property="og:description"
+      content="Certification preparation built as an operational simulator instead of a question bank. Launching soon."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#faf8f4" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- Inline favicon: the accent mark, so there is no second file and no 404. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23faf8f4'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%233f6b54'/%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Copied from src/main.css. See the note at the top of this file. */
+      :root {
+        --bg: #faf8f4;
+        --surface: #ffffff;
+        --line: #e5dfd5;
+        --ink: #26221c;
+        --shade: #57503f;
+        --mute: #746a5c;
+        --soft: #94897a;
+        --accent: #3f6b54;
+        --tint: #e6eee8;
+        --ember: #b3402e;
+
+        --sans: 'Lora', Georgia, 'Times New Roman', serif;
+        --display: 'Cormorant Garamond', Georgia, serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        background-color: var(--bg);
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.5rem 2rem;
+        background-color: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      ::selection {
+        background-color: var(--accent);
+        color: #ffffff;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 40rem;
+      }
+
+      /* Wordmark */
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        font-family: var(--display);
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .brand-mark {
+        width: 9px;
+        height: 9px;
+        flex: none;
+        background: var(--accent);
+      }
+
+      /* Status chip. The colour never carries the meaning alone: the label
+         always spells it out, per the note in src/main.css. */
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.75rem;
+        padding: 0.3rem 0.7rem 0.3rem 0.6rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface);
+        font-size: 0.6875rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mute);
+      }
+
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        flex: none;
+        border-radius: 50%;
+        background: var(--ember);
+      }
+
+      h1 {
+        margin: 1.25rem 0 0;
+        font-family: var(--display);
+        font-size: clamp(2.25rem, 8vw, 3.5rem);
+        font-weight: 600;
+        line-height: 1.06;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+      }
+
+      h1 .quiet {
+        color: var(--accent);
+      }
+
+      .lead {
+        margin: 1.125rem 0 0;
+        max-width: 34rem;
+        font-size: 1.0625rem;
+        color: var(--shade);
+        text-wrap: pretty;
+      }
+
+      .rule {
+        margin: 2.25rem 0 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      /* What it is: three hairline-separated facts, no boxes. */
+      .facts {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .facts div {
+        padding: 1.125rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .facts dt {
+        font-size: 0.625rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .facts dd {
+        margin: 0.3rem 0 0;
+        color: var(--shade);
+        text-wrap: pretty;
+      }
+
+      .closing {
+        margin: 1.75rem 0 0;
+        font-size: 0.9375rem;
+        font-style: italic;
+        color: var(--mute);
+        text-wrap: pretty;
+      }
+
+      footer {
+        width: 100%;
+        max-width: 40rem;
+        margin-top: 3rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--soft);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Practiworks
+      </div>
+
+      <p class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        In progress
+      </p>
+
+      <h1>
+        Knowledge goes in.<br />
+        <span class="quiet">Judgment comes out.</span>
+      </h1>
+
+      <p class="lead">
+        Practiworks is certification preparation that works like the job. Not a
+        question bank: an operational simulator you actually have to run.
+      </p>
+
+      <hr class="rule" />
+
+      <dl class="facts">
+        <div>
+          <dt>You take the role</dt>
+          <dd>
+            Every track puts you in a real seat with real responsibility, on a
+            platform that was handed to you in the state someone else left it.
+          </dd>
+        </div>
+        <div>
+          <dt>Incidents arrive</dt>
+          <dd>
+            Access requests, failing pipelines, capacity that will not stretch.
+            They do not wait for you to feel ready, and they do not arrive one
+            neatly labelled topic at a time.
+          </dd>
+        </div>
+        <div>
+          <dt>Every decision costs something</dt>
+          <dd>
+            Choices spend budget and move your service level, and the careless
+            ones come back later in the week as someone else's emergency. You
+            learn trade-off thinking, not answer recall.
+          </dd>
+        </div>
+      </dl>
+
+      <p class="closing">
+        The first track is in final testing. The full site follows shortly
+        after.
+      </p>
+
+      <!--
+        CALL TO ACTION. Currently off: this is a pure holding page, so nothing
+        here is clickable. To open the first playable week, drop this in just
+        below the closing paragraph and add the matching CSS:
+
+        <p style="margin: 1.75rem 0 0">
+          <a
+            href="./tracks/capacity-command/week-1/index.html"
+            style="
+              display: inline-block;
+              padding: 0.7rem 1.4rem;
+              border-radius: 0.75rem;
+              background: var(--accent);
+              color: #fff;
+              font-size: 0.9375rem;
+              text-decoration: none;
+            "
+            >Play the first week</a
+          >
+        </p>
+
+        Note the path assumes this file sits at the site root, next to the
+        `tracks/` folder produced by `npm run sync:tracks`.
+      -->
+
+      <!--
+        CONTACT. Off for the same reason `site.contactEmail` is empty in
+        src/content/site.ts: an empty value hides the link rather than
+        publishing an address that does not work yet. Once you have decided on
+        the address, add this below the closing paragraph:
+
+        <p style="margin: 1.5rem 0 0; font-size: 0.9375rem; color: var(--mute)">
+          Questions in the meantime:
+          <a href="mailto:hello@practiworks.com" style="color: var(--accent)"
+            >hello@practiworks.com</a
+          >
+        </p>
+      -->
+    </main>
+
+    <footer>
+      <span>&copy; <span id="year">2026</span> Practiworks</span>
+      <span>Certification preparation that works like the job</span>
+    </footer>
+
+    <script>
+      // Keeps the footer year right without a build step. The markup already
+      // holds a correct year, so this is only a convenience for later.
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
